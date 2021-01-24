@@ -1,0 +1,5 @@
+server:  port: 8080
+spring:  application:    name: zuul-server
+eureka:  client:    register-with-eureka: true
+    fetch-registry: true
+    service-url:      defaultZone: http://localhost:8761/eurekazuul:  sensitive-headers:  - Cookie, Authorization  ignored-services: '*'  routes:    product:      path: /product/**      service-id: product    cart:      path: /cart/**      service-id: cart    audit:      path: /audit/**      service-id: audit    auth:      path: /**      service-id: authlogging:  level:    ROOT: INFO    org:      springframework:        web: DEBUG

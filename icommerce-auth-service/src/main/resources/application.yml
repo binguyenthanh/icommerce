@@ -1,0 +1,53 @@
+server:
+  port: 8088
+  forward-headers-strategy: framework
+ 
+spring:
+  application:
+    name: auth
+  datasource:
+      url: jdbc:mysql://localhost:3306/icommerce_auth?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+      username: root
+      password: root
+
+  jpa:
+      show-sql: true
+  flyway:
+    url: jdbc:mysql://localhost:3306/mysql
+    schemas: icommerce_auth
+    user: root
+    password: root
+  security:
+    oauth2:
+      client:
+        registration:
+          facebook:
+            clientId: 433922401121693
+            clientSecret: 6be7b4c0100631006b4e29fa696f2e58
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+logging:
+  level:
+    ROOT: INFO
+    org:
+      springframework:
+        web: DEBUG
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+app-auth:
+  auth:
+    tokenSecret: 926D96C90030DD58429D2751AC1BDBBC
+    tokenExpirationMsec: 864000000

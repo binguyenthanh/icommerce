@@ -1,0 +1,30 @@
+management:
+  endpoint:
+    health:
+      enabled: false
+eureka:
+  client:
+    enabled: false
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  profiles:
+    active: test
+  jpa:
+    show-sql: true
+  security:
+    oauth2:
+      client:
+        registration:
+          facebook:
+            clientId: 433922401121693
+            clientSecret: 6be7b4c0100631006b4e29fa696f2e58
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
