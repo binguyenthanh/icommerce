@@ -2,5 +2,5 @@ server:  port: 8084
 eureka:  client:
     register-with-eureka: true
     fetch-registry: true    service-url:
-      defaultZone: http://localhost:8761/eurekafeign:  hystrix:    enabled: false
+      defaultZone: http://localhost:8761/eurekafeign:  hystrix:    enabled: true    hystrix:    shareSecurityContext: true
 security:  oauth2:    resource:      user-info-uri: http://localhost:8088/userspring:  application:    name: product  datasource:    url: jdbc:mysql://localhost:3306/icommerce_product?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false    username: root    password: root  jpa:    show-sql: true  flyway:    url: jdbc:mysql://localhost:3306/mysql    schemas: icommerce_product    user: root    password: rootlogging:  level:    ROOT: INFO    org:      springframework:        web: DEBUG      hibernate:        SQL: DEBUG        type:          descriptor:            sql:              BasicBinder: TRACE
